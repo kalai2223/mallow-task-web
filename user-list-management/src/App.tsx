@@ -1,12 +1,11 @@
 import './App.css';
 
 function App() {
-
   return (
     <>
-      <h1>Task</h1>
+      <h1>user list management</h1>
     </>
   );
-};
+}
 
 export default App;
