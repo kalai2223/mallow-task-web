@@ -9,7 +9,7 @@ interface ConfirmActionButtonProps {
   cancelText?: string;
   onConfirm: () => void;
   onCancel?: () => void;
-  children: React.ReactNode; // button, icon, or any element
+  children: React.ReactNode;
 }
 
 const ConfirmActionButton: React.FC<ConfirmActionButtonProps> = ({
@@ -30,7 +30,7 @@ const ConfirmActionButton: React.FC<ConfirmActionButtonProps> = ({
       onConfirm={onConfirm}
       onCancel={onCancel}
     >
-      {/* Any child element gets wrapped with confirmation */}
+      {/* Child element gets wrapped with confirmation */}
       <span className="cursor-pointer">{children}</span>
     </Popconfirm>
   );

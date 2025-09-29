@@ -10,6 +10,7 @@ interface SearchBarProps {
   allowClear?: boolean;
   size?: 'small' | 'middle' | 'large';
   className?: string;
+  onClear?: () => void;
 }
 
 const SearchBar: React.FC<SearchBarProps> = ({
@@ -18,6 +19,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
   allowClear = true,
   size = 'middle',
   className = '',
+  onClear,
 }) => {
   return (
     <Search
@@ -26,6 +28,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
       size={size}
       className={className}
       onSearch={onSearch}
+      onClear={onClear}
     />
   );
 };

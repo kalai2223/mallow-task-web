@@ -2,14 +2,15 @@ import React, { useEffect } from 'react';
 
 import { Modal, Form } from 'antd';
 
-import InputComponent from '../../components/InputComponent';
-import Notify from '../../components/Notify';
+import InputComponent from '@components/InputComponent';
+import Notify from '@components/Notify';
+import { User } from '@api/userApi';
 
 interface UserFormModalProps {
   visible: boolean;
   onCancel: () => void;
-  onSubmit: (values: any) => void;
-  initialValues?: any; // undefined for Add, object for Edit
+  onSubmit: (values: Partial<User>) => void;
+  initialValues?: Partial<User>; // undefined for Add, object for Edit
   title?: string;
 }
 

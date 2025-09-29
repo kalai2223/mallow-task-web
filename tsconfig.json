@@ -1,18 +1,17 @@
 {
   "compilerOptions": {
     /* Basic Options */
-    "target": "ESNext",                        // modern JS output
-    "module": "ESNext",                        // use ES modules
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],  // include browser and modern JS APIs
-    "allowJs": true,                            // allow JS files in the project
-    "checkJs": false,                           // don’t type-check JS
-    "jsx": "react-jsx",                         // React 17+ JSX transform
-    "declaration": false,                       // no type declarations
-    "declarationMap": false,
+    "target": "ESNext",
+    "module": "ESNext",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "allowJs": true,
+    "checkJs": false,
+    "jsx": "react-jsx",
+    "declaration": false,
     "sourceMap": true,
     "outDir": "./dist",
     "rootDir": "./src",
-    "strict": true,                             // enable all strict checks
+    "strict": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
     "strictFunctionTypes": true,
@@ -24,23 +23,27 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
-    "skipLibCheck": true,                        // skip type checking node_modules
-
-    /* Type Checking Options */
+    "skipLibCheck": true,
     "isolatedModules": true,
-    "noEmit": true,                               // no JS output, Vite handles build
+    "noEmit": true,
 
-    /* Path Aliases (optional) */
+    /* Path Aliases */
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@api/*": ["src/api/*"],
+      "@app/*": ["src/app/*"],
+      "@features/*": ["src/features/*"],
+      "@components/*": ["src/components/*"],
+      "@routes/*": ["src/routes/*"],
+      "@utils/*": ["src/utils/*"],
+      "@assets/*": ["src/assets/*"]
     },
 
     /* Type Roots */
-    "typeRoots": ["./node_modules/@types", "./types"],  
-    "allowImportingTsExtensions": true,
+    "typeRoots": ["./node_modules/@types", "./types"],
+    "allowImportingTsExtensions": true
   },
 
-  "include": ["src", "types"],                  // include source and custom types
+  "include": ["src", "types"],
   "exclude": ["node_modules", "dist"]
 }

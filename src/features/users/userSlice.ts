@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 
-import { userListApi, addUserApi, updateUserApi, deleteUserApi } from '../../api/userApi';
+import { userListApi, addUserApi, updateUserApi, deleteUserApi } from '@api/userApi';
 
 interface User {
   id: number;
@@ -81,6 +81,9 @@ const userSlice = createSlice({
         (u) =>
           u.first_name.toLowerCase().includes(term) || u.last_name.toLowerCase().includes(term),
       );
+
+      const pageSize = Math.ceil(state.users.length / state.perPage);
+      state.total = pageSize;
     },
     clearSearchTerm: (state) => {
       state.searchTerm = '';

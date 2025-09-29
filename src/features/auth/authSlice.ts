@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-import { loginApi } from '../../api/authApi';
+import { loginApi } from '@api/authApi';
 
 interface AuthState {
   token: string | null;
@@ -20,8 +20,8 @@ export const loginUser = createAsyncThunk(
     try {
       const data = await loginApi(email, password);
       return data.token;
-    } catch (err: any) {
-      return rejectWithValue(err.response?.data?.error || 'Login failed');
+    } catch {
+      return rejectWithValue('Login failed');
     }
   },
 );

@@ -1,7 +1,7 @@
 import { Table, Avatar, Button, Space } from 'antd';
 import type { TablePaginationConfig } from 'antd/es/table';
-import type { User } from '../../api/userApi';
-import ConfirmActionButton from '../../components/ConfirmActionButton';
+import type { User } from '@api/userApi';
+import ConfirmActionButton from '@components/ConfirmActionButton';
 
 interface TableViewProps {
   users: User[];
@@ -48,7 +48,7 @@ const TableView: React.FC<TableViewProps> = ({
     {
       title: 'Action',
       key: 'action',
-      render: (_: any, record: User) => (
+      render: (_: unknown, record: User) => (
         <Space>
           <Button className="rounded" type="primary" onClick={() => onEdit(record)}>
             Edit

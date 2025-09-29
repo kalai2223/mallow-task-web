@@ -6,8 +6,8 @@ import { useNavigate } from 'react-router-dom';
 
 import { loginUser } from './authSlice';
 
-import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import InputComponent from '../../components/InputComponent';
+import { useAppDispatch, useAppSelector } from '@app/hooks';
+import InputComponent from '@components/InputComponent';
 
 const LoginPage: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -36,7 +36,6 @@ const LoginPage: React.FC = () => {
         style={{ padding: '40px' }}
         className="bg-white shadow-lg rounded-xl w-120"
         layout="vertical"
-        initialValues={{ email: 'eve.holt@reqres.in', password: 'cityslicka' }}
       >
         {error && <p className="text-red-500 text-sm mb-2">{error}</p>}
 

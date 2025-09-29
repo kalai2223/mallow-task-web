@@ -7,11 +7,11 @@ import TableView from './TableView';
 import UserFormModal from './UserFormModel';
 import { fetchUsers, addUser, editUser, deleteUser, setSearchTerm } from './userSlice';
 
-import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import Loader from '../../components/Loader';
-import Notify from '../../components/Notify';
-import SearchBar from '../../components/SearchBarComponent';
-import type { User } from '../../api/userApi';
+import { useAppDispatch, useAppSelector } from '@app/hooks';
+import Loader from '@components/Loader';
+import Notify from '@components/Notify';
+import SearchBar from '@components/SearchBarComponent';
+import type { User } from '@api/userApi';
 
 const UserListPage: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -50,8 +50,8 @@ const UserListPage: React.FC = () => {
       Notify({ type: 'success', content: 'User saved successfully!' });
       setModalVisible(false);
       dispatch(fetchUsers({ page }));
-    } catch (err: any) {
-      Notify({ type: 'error', content: `Error while saving user: ${err.message || err}` });
+    } catch {
+      Notify({ type: 'error', content: 'Error while saving user' });
     }
   };
 
@@ -60,14 +60,16 @@ const UserListPage: React.FC = () => {
       await dispatch(deleteUser(id)).unwrap();
       Notify({ type: 'success', content: 'User deleted successfully!' });
       dispatch(fetchUsers({ page }));
-    } catch (err: any) {
-      Notify({ type: 'error', content: `Error while deleting user: ${err.message || err}` });
+    } catch {
+      Notify({ type: 'error', content: 'Error while deleting user' });
     }
   };
 
   const onChangeTableHandler = (current: number) => {
     dispatch(fetchUsers({ page: current.toString() }));
   };
+
+  const onClearSearch = () => dispatch(fetchUsers({ page: '1' }));
 
   if (error) return <p className="text-center text-red-500">{error}</p>;
 
@@ -79,7 +81,11 @@ const UserListPage: React.FC = () => {
           <div className="flex justify-between  m-[5px]">
             <h2 className="text-2xl font-bold my-2">Users</h2>
             <div className="flex flex-row gap-2">
-              <SearchBar placeholder="input search text" onSearch={handleSearch} />
+              <SearchBar
+                placeholder="input search text"
+                onSearch={handleSearch}
+                onClear={onClearSearch}
+              />
               <Button
                 type="primary"
                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4"

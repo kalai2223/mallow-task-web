@@ -2,12 +2,13 @@ import React from 'react';
 
 import { EditOutlined, DeleteFilled } from '@ant-design/icons';
 
-import ConfirmActionButton from '../../components/ConfirmActionButton';
+import ConfirmActionButton from '@components/ConfirmActionButton';
+import { User } from '@api/userApi';
 
 interface CardActionProps {
-  user: any;
-  onEdit?: (user: any) => void;
-  onDelete?: (user: any) => void;
+  user: User;
+  onEdit?: (user: User) => void;
+  onDelete?: (Id: number) => void;
 }
 
 function CardAction({ user, onEdit, onDelete }: CardActionProps) {

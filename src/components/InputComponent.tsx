@@ -3,24 +3,28 @@
 import React from 'react';
 
 import { Input, Form } from 'antd';
+import { Rule } from 'antd/es/form';
 
 const { TextArea, Password } = Input;
 
 type InputType = 'text' | 'password' | 'textarea' | 'number';
 
+type InputSize = 'small' | 'middle' | 'large';
+
+type ValueType = string | number | bigint | readonly string[] | undefined;
 interface ReusableInputProps {
     name: string;
     label?: string;
     placeholder?: string;
     type?: InputType;
-    rules?: any[]; // AntD form rules
+    rules?: Rule[];
     disabled?: boolean;
-    onChange?: (value: any) => void;
-    value?: any;
+    onChange?: (value: ValueType) => void;
+    value?: ValueType;
     rows?: number; // for TextArea
     prefix?: React.ReactNode
     className?: string
-    size?: 'small' | 'middle' | 'large'
+    size?: InputSize
     iconRender?: boolean
 }
 
